@@ -12,5 +12,5 @@ for root, dirs, files in os.walk(dataPath):
         if filename != '/Data/genres_original/jazz/jazz.00054.wav':
             songLocations.append(filename)
             genreLabels.append(filename.split('\\')[8])
-
+test
 print(set(genreLabels))
