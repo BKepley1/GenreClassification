@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import os, json, math, librosa
+import os, math, librosa
 import IPython.display as ipd
 import librosa.display
 
@@ -13,6 +13,8 @@ from tensorflow.keras.layers import Conv2D
 
 import sklearn.model_selection as sk
 from sklearn.model_selection import train_test_split
+
+from sklearn.metrics import confusion_matrix
 
 # #Waveform
 # audio_path = songLocations[500]
@@ -118,7 +120,6 @@ def buildModel(inputShape):
 
 
 def predict(model, X, y):
-    X = X[np.newaxis, ...]
 
     prediction = model.predict(X)
     predictIndex = np.argmax(prediction, axis=1)
@@ -126,7 +127,19 @@ def predict(model, X, y):
     target = z[y]
     predicted = z[predictIndex]
 
-    print("Target: {}, Predicted label: {}".format(target, predicted))
+    #print("Target: {}, Predicted label: {}".format(target, predicted))
+    confMatrix = confusion_matrix(target, predicted)
+
+    df = pd.DataFrame(confMatrix, z, z)
+    plt.matshow(df)
+    plt.colorbar()
+    for (x,y), i in np.ndenumerate(df):
+        plt.text(x, y, i, va="center", ha="center",
+                 bbox=dict(boxstyle='round', facecolor='white', edgecolor='.5'))
+
+    plt.xticks(np.arange(len(z)), z)
+    plt.yticks(np.arange(len(z)), z)
+    plt.show()
 
 
 def plotAcc(hist):
@@ -150,21 +163,28 @@ def plotAcc(hist):
 
 if __name__ == '__main__':
     dataPath = os.getcwd() + '\\Data\\genres_original'
-    XTrain, XTest, XVal, YTrain, YTest, YVal, z = splitData(.25, .2)
+    XTrain, XTest, XVal, YTrain, YTest, YVal, z = splitData(.1, .1)
 
     input_shape = (XTrain.shape[1], XTrain.shape[2], 1)
     model = buildModel(input_shape)
 
-    optim = keras.optimizers.Adagrad(learning_rate=0.0001)
+    optim = keras.optimizers.Ftrl(learning_rate=0.0001)
     model.compile(optimizer=optim, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
     model.summary()
 
-    history = model.fit(XTrain, YTrain, validation_data=(XVal, YVal), batch_size=32, epochs=30)
+    history = model.fit(XTrain, YTrain, validation_data=(XVal, YVal), batch_size=32, epochs=32)
 
+    model.save(os.getcwd()+'\\model')
     plotAcc(history)
 
     test_loss, test_acc = model.evaluate(XTest, YTest, verbose=2)
     print('\nTest Accuracy:', test_acc)
+
+    xToPredict = XTest
+    yToPredict = YTest
+
+    predict(model, xToPredict, yToPredict)
+
     # songLocations = []
     # genreLabels = []
     # for root, dirs, files in os.walk(dataPath):
