@@ -1,5 +1,5 @@
 # Genre Classification
-Approach to genre classification using a Convolutional Neural Network (CNN) to analyze Mel-Frequency Cepstral Coeffiecients (MFCC).
+Approach to genre classification using a Convolutional Neural Network to analyze Mel-Frequency Cepstral Coeffiecients.
 
 ## Required Libraries
 - numpy
@@ -13,7 +13,7 @@ Approach to genre classification using a Convolutional Neural Network (CNN) to a
 1. Download program
    - If necessary download data
    - ***DATA MUST BE PLACED USING THE SAME FILE STRUCTURE AS SHOWN IN THIS REPOSITORY***
-     - > ex. *Program Location*//Data//genres_original
+     > ex. *Program Location*//Data//genres_original
    - This program builds the list of genres using file structure within genres_original
    - Genres can be added or removed as needed
 2. Open and Run program 
