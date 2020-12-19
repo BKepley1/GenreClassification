@@ -1,12 +1,12 @@
 #Music Genre Classification
 #Authors: Damian Hupka, Brandon Kepley, Ryan Picariello
+#https://github.com/BKepley1/GenreClassification
 
 
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import os, math, librosa
-import IPython.display as ipd
 import librosa.display
 
 import tensorflow as tf
@@ -195,7 +195,7 @@ if __name__ == '__main__':
 
     XTrain, XTest, XVal, YTrain, YTest, YVal, z = splitData(.1, .1)     #Calls splitData to get various sets
 
-    #Defines inpurShape for model using Training set shape
+    #Defines inputShape for model using Training set shape
     input_shape = (XTrain.shape[1], XTrain.shape[2], 1)
     model = buildModel(input_shape)     #Builds model
 
