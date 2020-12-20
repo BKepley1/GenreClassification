@@ -1,6 +1,7 @@
 # Genre Classification
 Approach to genre classification using a Convolutional Neural Network to analyze Mel-Frequency Cepstral Coeffiecients.
-This program utilizes the names of folders in order to build the list of genres for classifications, for this reason: ***DATA MUST BE PLACED USING THE SAME FILE STRUCTURE AS SHOWN IN THIS REPOSITORY*** <br /><br />
+This program utilizes the names of folders in order to build the list of genres for classifications, for this reason: <br />
+***DATA MUST BE PLACED USING THE SAME FILE STRUCTURE AS SHOWN IN THIS REPOSITORY*** <br /><br />
 ```
 *This program has currently only been testing on Windows, errors could occur using another operating system*
 ```
