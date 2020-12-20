@@ -17,7 +17,7 @@ This program utilizes the names of folders in order to build the list of genres 
 1. Download program
    - If necessary download the data files which can also be found on Kaggle here: <br />
       https://www.kaggle.com/andradaolteanu/gtzan-dataset-music-genre-classification <br />
-   - The only required data are the .wav files
+   - The only required data files are located with the *genre_original* directory
 2. Ensure the data is placed using the same file structure shown in the repository
    > ex. *Program Location*//Data//genres_original//*Genre Folders*
    - For clarity: The "Data" folder is located in the directory containing the program
