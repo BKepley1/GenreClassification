@@ -19,7 +19,8 @@ This program utilizes the names of folders in order to build the list of genres 
       https://www.kaggle.com/andradaolteanu/gtzan-dataset-music-genre-classification <br />
    - The only required data are the .wav files
 2. Ensure the data is placed using the same file structure shown in the repository
-   > ex. *Program Location*//Data//genres_original
+   > ex. *Program Location*//Data//genres_original//*Genre Folders*
+   - For clarity: The "Data" folder is located in the directory containing the program
 3. Open and Run program 
    - **Currently trains model on every run**
    - Approximately 10 minute run time depending on machine
