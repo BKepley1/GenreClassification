@@ -22,3 +22,10 @@ This program utilizes the names of folders in order to build the list of genres 
 3. Open and Run program 
    - **Currently trains model on every run**
    - Approximately 10 minute run time depending on machine
+4. The output will occur as listed below:
+```
+- Display the current training progress
+- Display a plot of the training and validation accuracy/error
+- Print the overall Testing accuracy
+- Display the confusion Matix
+```
