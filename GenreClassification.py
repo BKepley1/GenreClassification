@@ -199,7 +199,7 @@ if __name__ == '__main__':
     input_shape = (XTrain.shape[1], XTrain.shape[2], 1)
     model = buildModel(input_shape)     #Builds model
 
-    #Compiles model using optimizer defined below
+    #Compiles model using the optimizer defined below
     optim = keras.optimizers.Adam(learning_rate=0.0001)
     model.compile(optimizer=optim, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
     model.summary()
